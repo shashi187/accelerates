@@ -1,0 +1,1296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Accelerates is an AI & Custom Web Development + SEO Agency that builds high-performance, conversion-optimized websites." />
+  <meta name="author" content="Accelerates" />
+  <title>Accelerates – AI & Custom Web Dev + SEO Agency</title>
+  <style>
+    /* CSS Variables for Theme Colors */
+    :root {
+      --primary-color: #3a7bd5;
+      --accent-color: #00d2ff;
+      --bg-color: #f5f7fa;
+      --text-color: #333;
+      --dark-bg: #333;
+      --footer-text: #ddd;
+      --footer-bottom: #aaa;
+    }
+
+    /* Reset & Base */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* Layout Containers */
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    section,
+    footer {
+      padding: 3rem 0;
+    }
+
+    /* Navigation */
+    header {
+      position: sticky;
+      top: 0;
+      background: #fff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+    }
+
+    header nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+    }
+
+    .logo {
+      font-size: 1.75rem;
+      font-weight: 700;
+      background: linear-gradient(90deg, var(--accent-color), var(--primary-color));
+      /* -webkit-text-fill-color: transparent; */
+      padding: 0.6rem;
+      border-radius: 3rem;
+    }
+
+    .main-nav {
+      display: flex;
+      gap: 1rem;
+      place-items: center;
+    }
+
+    .main-nav li a {
+      position: relative;
+      padding: 0.25rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+
+    .main-nav li a:hover {
+      color: var(--primary-color);
+    }
+
+    .main-nav li a::after {
+      content: "";
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--primary-color);
+      transition: width 0.3s;
+    }
+
+    .main-nav li a:hover::after {
+      width: 100%;
+    }
+
+    #contactUs {
+      cursor: pointer;
+    }
+
+    #contactUs:hover {
+      background: var(--accent-color)
+    }
+
+    .btn-primary {
+      background: var(--primary-color);
+      color: #fff;
+      padding: 1rem 2rem;
+      border-radius: 2rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-color);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      border: 2px solid var(--accent-color);
+      color: var(--accent-color);
+      padding: 0.8rem 1.2rem;
+      border-radius: 2rem;
+      cursor: pointer;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    .btn-secondary:hover {
+      background: var(--accent-color);
+      color: #fff;
+    }
+
+    /* Hero Section */
+    #hero {
+      background: linear-gradient(135deg, #00d2ff, #3a7bd5);
+      color: #fff;
+      padding: 4rem 1rem;
+    }
+
+    .hero-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .hero-left,
+    .hero-right {
+      flex: 1;
+      min-width: 300px;
+      margin: 1rem;
+    }
+
+    .hero-left {
+      text-align: center;
+    }
+
+    .hero-left img {
+      width: 100%;
+      border-radius: 1rem;
+      max-width: 500px;
+    }
+
+    .hero-right h1 {
+      font-size: 2.75rem;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+    }
+
+    .hero-right p {
+      font-size: 1.125rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .cta-buttons a {
+      margin-right: 1rem;
+    }
+
+    /* Stats Section */
+    .stats {
+      display: flex;
+      margin: auto;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      background: #fff;
+      padding: 2rem 0;
+      margin-top: -1rem;
+      border-radius: 1rem;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    .stat {
+      flex: 1 1 120px;
+      text-align: center;
+      margin: 1rem;
+    }
+
+    .stat h3 {
+      color: var(--primary-color);
+      font-size: 1.75rem;
+    }
+
+    /* Why Choose Accelerates Section */
+    #why-choose {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+      margin: 3rem 0;
+      margin: auto;
+      margin-top: 2rem;
+      text-align: center;
+    }
+
+    #why-choose h2 {
+      margin-bottom: 2rem;
+    }
+
+    .benefits {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+    }
+
+    .benefit {
+      transition: transform 0.3s ease;
+    }
+
+    .benefit:hover {
+      transform: translateY(-5px);
+    }
+
+    .benefit img {
+      width: 80px;
+      height: 80px;
+      margin-bottom: 1rem;
+    }
+
+    .benefit h4 {
+      margin-bottom: 0.5rem;
+      color: var(--primary-color);
+    }
+
+    .benefit p {
+      font-size: 0.9rem;
+    }
+
+    /* Services Section */
+    #services .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .service-card {
+      background: #fff;
+      padding: 1.5rem;
+      border-radius: 1rem;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .service-card img {
+      max-height: 150px;
+      margin-bottom: 1rem;
+      border-radius: 0.5rem;
+      object-fit: cover;
+    }
+
+    .service-card h3 {
+      color: var(--accent-color);
+      margin-bottom: 0.75rem;
+    }
+
+    .service-card p {
+      font-size: 0.95rem;
+    }
+
+    /* About Section */
+    #about {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    #about img {
+      border-radius: 1rem;
+      flex: 1;
+      min-width: 280px;
+    }
+
+    .about-text {
+      flex: 2;
+      min-width: 280px;
+    }
+
+    /* Portfolio Section */
+    #portfolio .filters {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    #portfolio .filters button {
+      margin: 0.3rem;
+      padding: 0.5rem 1rem;
+      border: 2px solid var(--primary-color);
+      background: transparent;
+      color: var(--primary-color);
+      border-radius: 2rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    #portfolio .filters button.active,
+    #portfolio .filters button:hover {
+      background: var(--primary-color);
+      color: #fff;
+    }
+
+    #portfolio .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+
+    #portfolio .project-item {
+      position: relative;
+      overflow: hidden;
+    }
+
+    #portfolio .project-item img {
+      border-radius: 0.5rem;
+      transition: transform 0.3s ease;
+    }
+
+    #portfolio .project-item:hover img {
+      transform: scale(1.05);
+    }
+
+    #portfolio .project-item .label {
+      position: absolute;
+      bottom: 0.5rem;
+      left: 0.5rem;
+      background: rgba(58, 123, 213, 0.9);
+      color: #fff;
+      padding: 0.3rem 0.6rem;
+      border-radius: 0.5rem;
+      font-size: 0.75rem;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    #portfolio .project-item:hover .label {
+      opacity: 1;
+    }
+
+    /* Pricing Section */
+    #pricing .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .plan {
+      position: relative;
+      background: #fff;
+      padding: 1.5rem;
+      border-radius: 1rem;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .plan:hover {
+      transform: translateY(-5px);
+    }
+
+    .plan.popular {
+      position: relative;
+      border: 2px solid var(--accent-color);
+    }
+
+    .plan.popular::before {
+      content: "MOST POPULAR";
+      position: absolute;
+      top: -15px;
+      right: -15px;
+      background: var(--accent-color);
+      color: #fff;
+      padding: 0.3rem 0.6rem;
+      border-radius: 0.25rem;
+      font-size: 0.8rem;
+    }
+
+    .plan h3 {
+      margin-bottom: 0.5rem;
+    }
+
+    .plan .price {
+      color: var(--primary-color);
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .plan h4 {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+      color: var(--primary-color);
+    }
+
+    .plan ul {
+      list-style: none;
+      text-align: left;
+      margin: 0 auto 1rem auto;
+      padding: 0;
+      max-width: 250px;
+    }
+
+    .plan ul li {
+      padding-left: 1rem;
+      position: relative;
+      margin-bottom: 0.5rem;
+    }
+
+    .plan ul li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: var(--accent-color);
+    }
+
+    .plan .btn {
+      background: var(--primary-color);
+      color: #fff;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 2rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .plan .btn:hover {
+      background: var(--accent-color);
+    }
+
+    /* Testimonials Section */
+    #testimonials .testimonials {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .testimonial-card {
+      background: #fff;
+      padding: 1.5rem;
+      border-radius: 1rem;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease;
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .client-info {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .client-info img {
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+    }
+
+    .star-rating {
+      color: var(--accent-color);
+      margin-bottom: 0.75rem;
+      font-size: 1.1rem;
+    }
+
+    .testimonial-text {
+      font-size: 0.95rem;
+      line-height: 1.4;
+    }
+
+    .dynamic-message {
+      background: var(--accent-color);
+      color: #fff;
+      text-align: center;
+      padding: 0.75rem;
+      margin-top: 2rem;
+      border-radius: 0.5rem;
+    }
+
+    .dynamic-message a {
+      color: #fff;
+      font-weight: bold;
+      text-decoration: underline;
+    }
+
+    /* FAQ Section */
+    #faq details {
+      background: #fff;
+      padding: 0.75rem 1rem;
+      border-radius: 1rem;
+      margin-bottom: 0.75rem;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    }
+
+    #faq summary {
+      cursor: pointer;
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
+
+    /* Contact Section */
+    #contact .contact-container {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    #contact h2 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      color: var(--primary-color);
+    }
+
+    .contact-form {
+      display: grid;
+      gap: 1rem;
+      text-align: left;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      border-color: var(--primary-color);
+    }
+
+    #contact .btn {
+      background: var(--primary-color);
+      color: #fff;
+      padding: 1rem;
+      border: none;
+      border-radius: 2rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    #contact .btn:hover {
+      background: var(--accent-color);
+    }
+
+    /* Footer Section */
+    footer {
+      background: var(--dark-bg);
+      color: var(--footer-text);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      padding: 2rem 0;
+    }
+
+    @media (min-width: 600px) {
+      .footer-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .footer-col h4 {
+      color: #fff;
+      margin-bottom: 0.75rem;
+    }
+
+    .footer-col p,
+    .footer-col ul li {
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-col ul li a {
+      color: #fff;
+      font-size: 0.9rem;
+    }
+
+    .social-media a img {
+      margin-right: 0.5rem;
+      border-radius: 50%;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding: 1rem 0;
+      font-size: 0.8rem;
+      color: var(--footer-bottom);
+    }
+
+    .footer-bottom a {
+      color: var(--footer-bottom);
+      margin: 0 0.5rem;
+      text-decoration: none;
+    }
+
+    /* Container Styling */
+    .containerImg {
+      position: relative;
+      width: 500px;
+      height: 500px;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+
+    /* Moving Image Animation */
+    .moving-image {
+      position: absolute;
+      width: 100%;
+      animation: scrollY 25s linear infinite;
+      will-change: transform;
+    }
+
+    /* Gradient Overlays */
+    .gradient-top,
+    .gradient-bottom {
+      position: absolute;
+      width: 100%;
+      height: 20px;
+      z-index: 50;
+      pointer-events: none;
+    }
+
+    .gradient-top {
+      top: 0;
+      background: linear-gradient(180deg, #f4f8ff, #fff0);
+    }
+
+    .gradient-bottom {
+      bottom: 0;
+      background: linear-gradient(0deg, #f4f8ff, #fff0);
+    }
+
+    /* Keyframes for Vertical Scroll */
+    @keyframes scrollY {
+      0% {
+        transform: translateY(0);
+      }
+
+      100% {
+        transform: translateY(-70%);
+      }
+    }
+  </style>
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+  <script>
+    (function () {
+      emailjs.init("ipGwBzh2sDu54PBW0"); // from EmailJS dashboard
+    })();
+
+    document.getElementById('contact-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      emailjs.sendForm('service_h4sahkb', 'template_pswzcrq', this)
+        .then(() => {
+          document.getElementById('contact-form').reset();
+          document.getElementById('success-message').style.display = 'block';
+        }, (error) => {
+          alert('❌ Failed to send. Please try again later.');
+          console.error('EmailJS Error:', error);
+        });
+    });
+  </script>
+
+</head>
+
+<body>
+  <!-- Navigation -->
+  <header>
+    <div class="container">
+      <nav aria-label="Main Navigation">
+        <div class="logo" style="color: #1e1d1d;">Accelerates</div>
+        <ul class="main-nav">
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><button id="contactUs" style="padding: 1rem; border: #ccc;border-radius: 3rem; font-size:medium;">
+              Contact Us
+            </button></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section id="hero"
+      style="background: linear-gradient(90deg,rgba(72, 191, 250, 1) 0%, rgb(243, 245, 247) 100%, rgba(235, 233, 213, 1) 53%);">
+      <div class="container hero-container">
+        <div class="hero-right">
+          <h1>Accelerate Your Business with AI-Powered Solutions</h1>
+          <p>High-speed, AI-enhanced websites designed for performance, SEO, and maximum conversion.</p>
+          <div class="cta-buttons">
+            <a href="#contact" class="btn-primary">Get Started</a>
+            <a href="#portfolio" class="btn-secondary">View Our Work</a>
+          </div>
+        </div>
+        <div class="containerImg">
+          <!-- Top Gradient Overlay -->
+          <div class="gradient-top"></div>
+
+          <!-- Moving Image -->
+          <img src="./Images/Accelerates.png" alt="" role="presentation" class="moving-image">
+
+          <!-- Bottom Gradient Overlay -->
+          <div class="gradient-bottom"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats Section -->
+    <div class="container stats">
+      <div class="stat">
+        <h3>200+</h3>
+        <p>Projects Completed</p>
+      </div>
+      <div class="stat">
+        <h3>98%</h3>
+        <p>Client Satisfaction</p>
+      </div>
+      <div class="stat">
+        <h3>95%</h3>
+        <p>Client Success Rate</p>
+      </div>
+      <div class="stat">
+        <h3>24/7</h3>
+        <p>Support Availability</p>
+      </div>
+    </div>
+
+    <!-- Services Section -->
+    <section id="services">
+      <h2 style="text-align: center;">Our Services</h2>
+      <div class="container services">
+        <div class="service-card">
+          <svg xmlns="http://www.w3.org/2000/svg" style="width: 100px; height: 100px; scale:calc(0.9)"
+            viewBox="0 0 64 64">
+            <defs>
+              <style>
+                .cls-1 {
+                  fill: #dfe1ea
+                }
+
+                .cls-2 {
+                  fill: #adb2c7
+                }
+
+                .cls-5 {
+                  fill: #fff
+                }
+              </style>
+            </defs>
+            <g id="_2-Coding" data-name="2-Coding">
+              <path class="cls-1" d="M63 11v50a2.006 2.006 0 0 1-2 2H3a2.006 2.006 0 0 1-2-2V11z" />
+              <path class="cls-2" d="M61 1a2.006 2.006 0 0 1 2 2v8H1V3a2.006 2.006 0 0 1 2-2z" />
+              <path
+                d="M39.6 21c-7.6 0-7.6-2-15.2-2s-7.6 2-15.2 2A26.743 26.743 0 0 1 1 19.844v8A26.743 26.743 0 0 0 9.2 29c7.6 0 7.6-2 15.2-2s7.6 2 15.2 2 7.6-2 15.2-2a26.787 26.787 0 0 1 8.2 1.157v-8A26.787 26.787 0 0 0 54.8 19c-7.6 0-7.6 2-15.2 2z"
+                style="fill:#cdd2e1" />
+              <path
+                d="M1 11v8.844A26.743 26.743 0 0 0 9.2 21c7.6 0 7.6-2 15.2-2s7.6 2 15.2 2 7.6-2 15.2-2a26.787 26.787 0 0 1 8.2 1.157V11z"
+                style="fill:#f6fafd" />
+              <path class="cls-2"
+                d="M61.054 16H38.946a.945.945 0 0 0-.946.946v20.108a.945.945 0 0 1-.946.946h-3.108a.945.945 0 0 0-.946.946v23.108a.945.945 0 0 0 .946.946h22.108a.945.945 0 0 0 .946-.946V41.946a.945.945 0 0 1 .946-.946h3.108a.945.945 0 0 0 .946-.946V16.946a.945.945 0 0 0-.946-.946z" />
+              <circle class="cls-2" cx="20" cy="31" r="13" />
+              <path class="cls-5" d="M38 23h20v14H38z" />
+              <path style="fill:#ffa426" d="M38 15h20v8H38z" />
+              <path class="cls-1" d="M41 26h14v8H41z" />
+              <path class="cls-5" d="M33 45h20v14H33z" />
+              <path style="fill:#8dd5f6" d="M33 37h20v8H33z" />
+              <path class="cls-1" d="M36 48h14v8H36z" />
+              <circle class="cls-5" cx="18" cy="28" r="13" />
+              <path class="cls-5"
+                d="M5 5h2v2H5zM14 5h45v2H14zM41 18h2v2h-2zM45 18h2v2h-2zM40 40h2v2h-2zM36 40h2v2h-2z" />
+              <path
+                d="M61 0H3a3 3 0 0 0-3 3v58a3 3 0 0 0 3 3h58a3 3 0 0 0 3-3V3a3 3 0 0 0-3-3zM3 2h58a1 1 0 0 1 1 1v7H2V3a1 1 0 0 1 1-1zm58 60H3a1 1 0 0 1-1-1V12h60v49a1 1 0 0 1-1 1z" />
+              <path
+                d="M18 42A14 14 0 1 0 4 28a14.015 14.015 0 0 0 14 14zm0-26A12 12 0 1 1 6 28a12.013 12.013 0 0 1 12-12z" />
+              <path
+                d="M14.707 32.293 10.414 28l4.293-4.293-1.414-1.414-5 5a1 1 0 0 0 0 1.414l5 5zM22.707 33.707l5-5a1 1 0 0 0 0-1.414l-5-5-1.414 1.414L25.586 28l-4.293 4.293zM58 14H38a1 1 0 0 0-1 1v21h-4a1 1 0 0 0-1 1v22a1 1 0 0 0 1 1h20a1 1 0 0 0 1-1V38h4a1 1 0 0 0 1-1V15a1 1 0 0 0-1-1zm-1 2v6H39v-6zM34 58V46h18v12zm18-14H34v-6h18zm1-8H39V24h18v12zM7 56h21v2H7zM7 51h21v2H7zM15 46h13v2H15zM7 46h4v2H7zM9 5h2v2H9z" />
+              <path transform="rotate(-80.528 18 28)" d="M11.917 27h12.166v2H11.917z" />
+            </g>
+          </svg>
+          <h3>AI Website Development</h3>
+          <p>Our AI engine creates high-performing, conversion-optimized websites 35% faster.</p>
+        </div>
+        <div class="service-card">
+          <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" x="0" y="0" viewBox="0 0 256 256"
+            style="enable-background:new 0 0 256 256 ; width:100px;height:100px" xml:space="preserve">
+            <style>
+              .st1 {
+                fill: #f85252
+              }
+
+              .st4 {
+                fill: #d8d6d7
+              }
+
+              .st5 {
+                fill: #fff
+              }
+
+              .st8 {
+                fill: #491352
+              }
+            </style>
+            <path class="st1"
+              d="M131.147 128.055H8.883a5 5 0 0 1-5-5V28.857a5 5 0 0 1 5-5h122.263a5 5 0 0 1 5 5v94.198a4.999 4.999 0 0 1-4.999 5z" />
+            <path class="st1"
+              d="M131.147 232.201H8.883a5 5 0 0 1-5-5v-94.198a5 5 0 0 1 5-5h122.263a5 5 0 0 1 5 5v94.198a4.999 4.999 0 0 1-4.999 5z" />
+            <path class="st4"
+              d="M136.145 42.699v80.36c0 2.76-2.24 5-5 5H8.885c-2.76 0-5-2.24-5-5v-94.2c0-2.76 2.24-5 5-5h29.78l13.66 16.97a5 5 0 0 0 3.89 1.87h79.93z" />
+            <circle class="st5" cx="111.43" cy="33.44" r="3.693" />
+            <circle class="st5" cx="124.947" cy="33.44" r="3.693" />
+            <path
+              d="M136.145 146.838v80.36c0 2.76-2.24 5-5 5H8.885c-2.76 0-5-2.24-5-5v-94.2c0-2.76 2.24-5 5-5h29.78l13.66 16.98a4.99 4.99 0 0 0 3.89 1.86h79.93z"
+              style="fill:#1c868e" />
+            <path class="st4"
+              d="M136.145 146.838v80.36c0 2.76-2.24 5-5 5H8.885c-2.76 0-5-2.24-5-5v-94.2c0-2.76 2.24-5 5-5h29.78l13.66 16.98a4.99 4.99 0 0 0 3.89 1.86h79.93z" />
+            <circle class="st5" cx="111.43" cy="137.586" r="3.693" />
+            <circle class="st5" cx="124.947" cy="137.586" r="3.693" />
+            <path class="st5"
+              d="M136.145 42.699v70.36c0 2.76-2.24 5-5 5H8.885c-2.76 0-5-2.24-5-5v-84.2c0-2.76 2.24-5 5-5h29.78l13.66 16.97a5 5 0 0 0 3.89 1.87h79.93zM136.145 146.838v70.36c0 2.76-2.24 5-5 5H8.885c-2.76 0-5-2.24-5-5v-84.2c0-2.76 2.24-5 5-5h29.78l13.66 16.98a4.99 4.99 0 0 0 3.89 1.86h79.93z" />
+            <path class="st1"
+              d="M247.12 180.111H124.856a5 5 0 0 1-5-5V80.913a5 5 0 0 1 5-5H247.12a5 5 0 0 1 5 5v94.198a5 5 0 0 1-5 5z" />
+            <path class="st4"
+              d="M252.115 94.749v80.36c0 2.76-2.23 5-5 5h-122.26c-2.76 0-5-2.24-5-5v-94.2c0-2.76 2.24-5 5-5h29.78l13.66 16.98a4.995 4.995 0 0 0 3.9 1.86h79.92z" />
+            <path class="st5"
+              d="M252.115 94.749v70.36c0 2.76-2.23 5-5 5h-122.26c-2.76 0-5-2.24-5-5v-84.2c0-2.76 2.24-5 5-5h29.78l13.66 16.98a4.995 4.995 0 0 0 3.9 1.86h79.92z" />
+            <circle class="st5" cx="227.403" cy="85.496" r="3.693" />
+            <circle class="st5" cx="240.92" cy="85.496" r="3.693" />
+            <path class="st8"
+              d="M24.091 61.958a2.72 2.72 0 0 0-2.721 2.721v33.802c0 3.37 5.102 3.375 5.102 0V84.718h7.513c9.698 0 13.511-5.382 13.511-11.324 0-6.392-4.317-11.437-13.511-11.437h-9.894zm18.19 11.436c0 4.372-2.467 7.119-8.297 7.119h-7.513V66.162h7.513c5.83 0 8.297 2.691 8.297 7.232zM58.925 98.481V83.317h19.901v15.164c0 3.37 5.102 3.375 5.102 0V64.508a2.55 2.55 0 1 0-5.102 0v14.604H58.925V64.508a2.55 2.55 0 1 0-5.102 0v33.973c0 3.37 5.102 3.374 5.102 0zM97.657 98.481V84.718h7.513c9.698 0 13.511-5.382 13.511-11.324 0-6.392-4.317-11.437-13.511-11.437h-9.893a2.72 2.72 0 0 0-2.721 2.721V98.48c0 3.371 5.101 3.375 5.101.001zm0-32.319h7.513c5.83 0 8.297 2.691 8.297 7.232 0 4.372-2.467 7.119-8.297 7.119h-7.513V66.162zM34.98 170.882c5.057 0 8.864 2.099 11.1 5.893a2.652 2.652 0 0 0 2.281 1.322h.017c2.178 0 3.39-2.465 2.118-4.233-3.433-4.771-8.941-7.387-15.515-7.387-10.738 0-19.164 8.15-19.164 19.66 0 11.509 8.426 19.549 19.164 19.549 6.554 0 12.048-2.566 15.483-7.266 1.288-1.763.072-4.243-2.112-4.243-.938 0-1.794.506-2.274 1.311-2.236 3.751-6.042 5.847-11.097 5.847-8.04 0-14.043-5.837-14.043-15.198-.001-9.417 6.002-15.255 14.042-15.255zM85.609 183.107H76v-9.83a2.12 2.12 0 0 0-2.12-2.12h-.44a2.12 2.12 0 0 0-2.12 2.12v9.83h-9.555a2.12 2.12 0 1 0 0 4.24h9.555v9.775a2.12 2.12 0 0 0 2.12 2.12h.44a2.12 2.12 0 0 0 2.12-2.12v-9.775h9.609a2.12 2.12 0 1 0 0-4.24zM122.115 183.107h-9.609v-9.83a2.12 2.12 0 0 0-2.12-2.12h-.44a2.12 2.12 0 0 0-2.12 2.12v9.83H98.27a2.12 2.12 0 1 0 0 4.24h9.555v9.775a2.12 2.12 0 0 0 2.12 2.12h.44a2.12 2.12 0 0 0 2.12-2.12v-9.775h9.609a2.12 2.12 0 0 0 .001-4.24zM153.026 112.395h-.784c-.943 0-1.707.764-1.707 1.707v12.412h-16.381v-12.412c0-.943-.764-1.707-1.707-1.707h-.785c-.943 0-1.707.764-1.707 1.707v28.747c0 .943.764 1.707 1.707 1.707h.785c.943 0 1.707-.764 1.707-1.707v-12.874h16.381v12.874c0 .943.764 1.707 1.707 1.707h.784c.943 0 1.707-.764 1.707-1.707v-28.747c0-.943-.764-1.707-1.707-1.707zM159.858 114.102c0 .943.764 1.707 1.707 1.707h7.106v27.04c0 .943.764 1.707 1.707 1.707h.785c.943 0 1.707-.764 1.707-1.707v-27.04h7.06a1.707 1.707 0 1 0 0-3.414h-18.365c-.943 0-1.707.764-1.707 1.707zM188.514 144.556h.785c.943 0 1.707-.764 1.707-1.707V120.7l10.208 22.845a1.707 1.707 0 0 0 1.559 1.011h.738c.674 0 1.285-.396 1.559-1.012l10.161-22.797v22.103c0 .943.764 1.707 1.707 1.707h.785c.943 0 1.707-.764 1.707-1.707v-27.508a2.716 2.716 0 0 0-5.195-1.11l-11.094 24.787-11.094-24.787a2.715 2.715 0 0 0-2.479-1.606h-.047a2.716 2.716 0 0 0-2.716 2.716v27.508a1.71 1.71 0 0 0 1.709 1.706zM229.373 144.556h10.919a1.707 1.707 0 1 0 0-3.414h-9.552v-27.04c0-.943-.764-1.707-1.707-1.707h-.785c-.943 0-1.707.764-1.707 1.707v27.622a2.832 2.832 0 0 0 2.832 2.832z" />
+            <path class="st8"
+              d="M247.106 73.9H138.154V28.84c0-3.859-3.141-7-7-7H8.893c-3.859 0-7 3.141-7 7v94.2c0 1.937.791 3.691 2.067 4.96a6.98 6.98 0 0 0-2.067 4.96v94.2c0 3.859 3.141 7 7 7h122.261c3.859 0 7-3.141 7-7v-45.062h108.952c3.859 0 7-3.141 7-7V80.9c0-3.859-3.14-7-7-7zM131.154 25.84c1.654 0 3 1.346 3 3v11.84h-77.93c-.907 0-1.757-.41-2.332-1.124L42.851 25.84h88.303zm-125.26 3c0-1.654 1.346-3 3-3h28.822l13.061 16.224a6.962 6.962 0 0 0 5.447 2.616h77.931V73.9h-9.312c-3.859 0-7 3.141-7 7v45.06H8.894c-.178 0-.353.014-.528.027a3 3 0 0 1-2.472-2.947v-94.2zm111.949 101.2v14.76H56.224a2.996 2.996 0 0 1-2.331-1.113L42.915 130.04h74.928zm16.311 97.12c0 1.654-1.346 3-3 3H8.894c-1.654 0-3-1.346-3-3v-94.2a3 3 0 0 1 2.472-2.947c.175.013.35.027.528.027H37.78l13.001 16.161a6.99 6.99 0 0 0 5.442 2.599h61.619v26.299c0 3.859 3.141 7 7 7h9.312v45.061zm115.952-52.061c0 1.654-1.346 3-3 3H124.843c-1.654 0-3-1.346-3-3V146.81l.001-.01-.001-.01v-18.74l.001-.01-.001-.01v-.061l.001-.01-.001-.01V80.9c0-1.654 1.346-3 3-3h28.821l13.062 16.228a6.969 6.969 0 0 0 5.453 2.61h77.928v78.361zm0-82.361h-77.928a2.99 2.99 0 0 1-2.338-1.119L158.799 77.9h88.308c1.654 0 3 1.346 3 3v11.838z" />
+            <path class="st8"
+              d="M132.265 89.734h18.497a2 2 0 0 0 0-4h-18.497a2 2 0 0 0 0 4zM227.39 79.791a5.699 5.699 0 0 0-5.692 5.693 5.699 5.699 0 0 0 5.692 5.692 5.699 5.699 0 0 0 5.693-5.692 5.7 5.7 0 0 0-5.693-5.693zm0 7.386a1.693 1.693 0 0 1 0-3.385c.933 0 1.693.76 1.693 1.693s-.76 1.692-1.693 1.692zM240.906 79.791a5.699 5.699 0 0 0-5.692 5.693 5.699 5.699 0 0 0 5.692 5.692 5.699 5.699 0 0 0 5.693-5.692 5.698 5.698 0 0 0-5.693-5.693zm0 7.386a1.693 1.693 0 0 1 0-3.385c.933 0 1.693.76 1.693 1.693s-.759 1.692-1.693 1.692zM16.313 37.672H34.81c2.642 0 2.646-4 0-4H16.313c-2.643 0-2.646 4 0 4zM111.438 39.114a5.699 5.699 0 0 0 5.692-5.692 5.699 5.699 0 0 0-5.692-5.693 5.699 5.699 0 0 0-5.693 5.693 5.699 5.699 0 0 0 5.693 5.692zm0-7.385c.934 0 1.692.76 1.692 1.693s-.759 1.692-1.692 1.692-1.693-.759-1.693-1.692.76-1.693 1.693-1.693zM124.955 39.114a5.699 5.699 0 0 0 5.692-5.692 5.699 5.699 0 0 0-5.692-5.693 5.699 5.699 0 0 0-5.693 5.693 5.698 5.698 0 0 0 5.693 5.692zm0-7.385c.934 0 1.692.76 1.692 1.693s-.759 1.692-1.692 1.692-1.693-.759-1.693-1.692.759-1.693 1.693-1.693zM34.81 141.797a2 2 0 0 0 0-4H16.313a2 2 0 0 0 0 4H34.81zM111.438 143.239a5.699 5.699 0 0 0 5.692-5.692 5.699 5.699 0 0 0-5.692-5.693 5.699 5.699 0 0 0-5.693 5.693 5.699 5.699 0 0 0 5.693 5.692zm0-7.385c.934 0 1.692.76 1.692 1.693s-.759 1.692-1.692 1.692-1.693-.759-1.693-1.692.76-1.693 1.693-1.693z" />
+          </svg>
+          <h3>Custom Web Development</h3>
+          <p>Expertly coded solutions built for scalability, usability, and performance.</p>
+        </div>
+        <div class="service-card">
+          <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="655.359" height="655.359"
+            style="shape-rendering:geometricPrecision;text-rendering:geometricPrecision;image-rendering:optimizeQuality;fill-rule:evenodd;clip-rule:evenodd ; width: 100px;height:100px;scale:calc(1.5)"
+            viewBox="0 0 6.827 6.827">
+            <defs>
+              <style>
+                .fil3 {
+                  fill: #424143
+                }
+              </style>
+            </defs>
+            <g id="Layer_x0020_1">
+              <g id="_537069960">
+                <g id="Layer_22">
+                  <path id="_537766824" style="fill:#dde2e4" d="M1.399 1.94h4.029v2.604H1.399z" />
+                  <path id="_537767328" d="M5.495 4.61H1.332V1.875h4.162V4.61zm-4.03-.132h3.897V2.007H1.465v2.47z"
+                    style="fill:#595a5c" />
+                  <path id="_537766416" style="fill:#d3dade" d="M3.413 2.007h1.955v2.471H3.413z" />
+                  <path id="_537765720" class="fil3" d="M5.495 4.61H3.413v-.132h1.949V2.007H3.413v-.133h2.082z" />
+                  <path id="_537765216" class="fil3"
+                    d="M5.719 4.953H1.108a.173.173 0 0 1-.173-.173v-.17h4.957v.17a.173.173 0 0 1-.173.173z" />
+                  <path id="_537765096" d="M5.72 4.953H3.412v-.342h2.48v.17a.173.173 0 0 1-.174.172z"
+                    style="fill:#2e2d2c" />
+                  <path id="_537764016" style="fill:#3a3a3a" d="M.935 4.611h4.958v.117H.935z" />
+                  <path id="_537764184" style="fill:#353434" d="M3.413 4.611h2.479v.117H3.413z" />
+                  <path id="_537763536" style="fill:#262525" d="M2.985 4.611h.856v.117h-.856z" />
+                  <g>
+                    <path id="_537763392" style="fill:#1e1d1d" d="M3.413 4.611h.428v.117h-.428z" />
+                  </g>
+                  <g>
+                    <path id="_537762408" style="fill:#bcc8ce" d="M1.598 2.387h3.634v1.96H1.598z" />
+                    <path id="_537750624" style="fill:#92aeb7" d="M1.598 2.143h3.634v.244H1.598z" />
+                    <path id="_537751176"
+                      d="M1.811 2.303h-.075a.027.027 0 0 1-.027-.027v-.022c0-.015.012-.027.027-.027h.075c.015 0 .028.012.028.027v.022a.027.027 0 0 1-.028.027z"
+                      style="fill:#be1e2d" />
+                    <path id="_537747072"
+                      d="M2.015 2.303H1.94a.027.027 0 0 1-.027-.027v-.022c0-.015.012-.027.027-.027h.075c.015 0 .027.012.027.027v.022a.027.027 0 0 1-.027.027z"
+                      style="fill:#ffde17" />
+                    <path id="_537745368"
+                      d="M2.22 2.303h-.076a.027.027 0 0 1-.027-.027v-.022c0-.015.012-.027.027-.027h.075c.015 0 .027.012.027.027v.022a.027.027 0 0 1-.027.027z"
+                      style="fill:#39b54a" />
+                  </g>
+                  <g>
+                    <path id="_537068472" class="fil3"
+                      d="m2.376 3.494.143-.014a.175.175 0 0 0 .053.106.159.159 0 0 0 .107.034c.047 0 .083-.01.107-.03a.09.09 0 0 0 .036-.07.066.066 0 0 0-.015-.045.121.121 0 0 0-.053-.031 1.828 1.828 0 0 0-.118-.032.4.4 0 0 1-.166-.072.19.19 0 0 1-.036-.251.198.198 0 0 1 .091-.074.365.365 0 0 1 .144-.025c.091 0 .16.02.206.06.047.04.071.094.073.16l-.147.007c-.006-.037-.02-.064-.04-.08-.021-.017-.052-.025-.094-.025a.168.168 0 0 0-.1.026.053.053 0 0 0-.024.045c0 .017.008.032.022.044a.387.387 0 0 0 .136.05.714.714 0 0 1 .159.052.205.205 0 0 1 .08.074c.02.031.03.07.03.116a.214.214 0 0 1-.134.199.413.413 0 0 1-.159.026.316.316 0 0 1-.212-.064.278.278 0 0 1-.089-.186z" />
+                    <path id="_537058752" class="fil3"
+                      d="M3.093 3.731v-.729h.541v.124H3.24v.161h.367v.123H3.24v.198h.408v.123z" />
+                    <path id="_537045432" class="fil3"
+                      d="M3.743 3.371c0-.074.011-.136.033-.187a.343.343 0 0 1 .068-.1.284.284 0 0 1 .095-.065.4.4 0 0 1 .157-.03c.107 0 .193.034.258.1.064.067.097.16.097.279 0 .117-.032.21-.096.276a.34.34 0 0 1-.257.1.343.343 0 0 1-.259-.1.376.376 0 0 1-.096-.273zm.152-.005c0 .083.019.145.057.188a.186.186 0 0 0 .145.064.185.185 0 0 0 .145-.064c.038-.042.056-.105.056-.19 0-.083-.018-.146-.055-.187a.186.186 0 0 0-.146-.061c-.06 0-.11.02-.146.062-.038.042-.056.104-.056.188z" />
+                  </g>
+                </g>
+              </g>
+            </g>
+            <path style="fill:none" d="M0 0h6.827v6.827H0z" />
+          </svg>
+          <h3>SEO Optimization</h3>
+          <p>Data-driven SEO strategies that propel your website to the top rankings.</p>
+        </div>
+        <div class="service-card">
+          <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" x="0" y="0" viewBox="0 0 256 256"
+            style="enable-background:new 0 0 256 256;width:100px;height:100px;scale:calc(0.9)" xml:space="preserve">
+            <style>
+              .st1 {
+                fill: #ffefe4
+              }
+
+              .st2 {
+                fill: #69ebfc
+              }
+
+              .st5 {
+                fill: #d476e2
+              }
+
+              .st9 {
+                fill: #ff8354
+              }
+
+              .st11 {
+                fill: #6770e6
+              }
+
+              .st14 {
+                fill: #edd4c2
+              }
+            </style>
+            <path class="st1"
+              d="M229.935 256H26.065C11.67 256 0 244.33 0 229.935V26.065C0 11.67 11.67 0 26.065 0h203.87C244.33 0 256 11.67 256 26.065v203.87C256 244.33 244.33 256 229.935 256z" />
+            <path class="st14"
+              d="M229.935 249H26.065C11.67 249 0 237.33 0 222.935v7C0 244.33 11.67 256 26.065 256h203.87C244.33 256 256 244.33 256 229.935v-7C256 237.33 244.33 249 229.935 249z" />
+            <path class="st2"
+              d="M229.935 0H26.065C11.67 0 0 11.67 0 26.065V40h256V26.065C256 11.67 244.33 0 229.935 0z" />
+            <path
+              d="M229.935 0H26.065C11.67 0 0 11.67 0 26.065v7C0 18.67 11.67 7 26.065 7h203.87C244.33 7 256 18.67 256 33.065v-7C256 11.67 244.33 0 229.935 0z"
+              style="fill:#a1f1fc" />
+            <circle class="st9" cx="35" cy="20" r="9" />
+            <circle class="st5" cx="68.5" cy="20" r="9" />
+            <circle class="st11" cx="102" cy="20" r="9" />
+            <path class="st9"
+              d="M226.445 156.614H29.555A3.555 3.555 0 0 1 26 153.059V62.982a3.555 3.555 0 0 1 3.555-3.555h196.89A3.555 3.555 0 0 1 230 62.982v90.077a3.555 3.555 0 0 1-3.555 3.555z" />
+            <path id="XMLID_9_" class="st2"
+              d="M82.907 170.609H29.555A3.555 3.555 0 0 0 26 174.164v40.728a3.555 3.555 0 0 0 3.555 3.555h53.352a3.555 3.555 0 0 0 3.555-3.555v-40.728a3.555 3.555 0 0 0-3.555-3.555z" />
+            <path id="XMLID_8_" class="st5"
+              d="M154.643 170.609h-53.352a3.555 3.555 0 0 0-3.555 3.555v40.728a3.555 3.555 0 0 0 3.555 3.555h53.352a3.555 3.555 0 0 0 3.555-3.555v-40.728a3.554 3.554 0 0 0-3.555-3.555z" />
+            <path id="XMLID_7_" class="st11"
+              d="M226.38 170.609h-53.352a3.555 3.555 0 0 0-3.555 3.555v40.728a3.555 3.555 0 0 0 3.555 3.555h53.352a3.555 3.555 0 0 0 3.555-3.555v-40.728a3.555 3.555 0 0 0-3.555-3.555z" />
+            <path id="XMLID_6_" class="st14"
+              d="M79.798 236.573H32.663a3.995 3.995 0 1 1 0-7.99h47.135a3.995 3.995 0 1 1 0 7.99z" />
+            <path id="XMLID_2_" class="st14"
+              d="M151.535 236.573H104.4a3.995 3.995 0 1 1 0-7.99h47.135a3.995 3.995 0 1 1 0 7.99z" />
+            <path id="XMLID_1_" class="st14"
+              d="M223.272 236.573h-47.135a3.995 3.995 0 1 1 0-7.99h47.135a3.995 3.995 0 0 1 0 7.99z" />
+            <path class="st1"
+              d="m147.243 103.836-29.655-17.121c-3.221-1.859-7.247.465-7.247 4.184v34.242c0 3.719 4.026 6.043 7.247 4.184l29.655-17.121c3.221-1.859 3.221-6.508 0-8.368z" />
+          </svg>
+          <h3>Landing Page Design</h3>
+          <p>Conversion-optimized landing pages designed to capture and convert visitors.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Choose Accelerates Section -->
+    <section id="why-choose" class="container">
+      <h2>Why Choose Accelerates?</h2>
+      <div class="benefits">
+        <div class="benefit">
+          <!-- <img src="" alt="Speed & Innovation"> -->
+          <h4>Speed & Innovation</h4>
+          <p>AI-driven technology builds websites faster and more efficiently.</p>
+        </div>
+        <div class="benefit">
+          <!-- <img src="https://via.placeholder.com/80?text=Custom" alt="Custom Solutions"> -->
+          <h4>Custom Solutions</h4>
+          <p>Bespoke, dynamic designs crafted specifically for your business.</p>
+        </div>
+        <div class="benefit">
+          <!-- <img src="https://via.placeholder.com/80?text=SEO" alt="SEO-Optimized Performance"> -->
+          <h4>SEO-Optimized Performance</h4>
+          <p>Data-driven strategies to boost organic traffic and conversions.</p>
+        </div>
+        <div class="benefit">
+          <!-- <img src="https://via.placeholder.com/80?text=Support" alt="Expert Support"> -->
+          <h4>Expert Support</h4>
+          <p>Dedicated assistance for website management and continuous success.</p>
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- About Section -->
+    <section id="about">
+      <div class="container about" style="width:80%; margin:0 auto;">
+        <h1 style="font-size: xx-large;text-align: center;margin-top: 2rem;">About Accelerates</h1>
+        <div style="display: inline-flex;justify-content: center;align-items: center;">
+          <img src="/images/pexels-photo-3183165.jpeg" style="rotate: 90deg; width: 30%;height: 50%;margin-left: 8rem;"
+            alt="Team Working Together" loading="lazy">
+          <p style="margin-left:10rem;">Accelerates: Revolutionizing Web Development with AI and Custom Solutions
+            Accelerates is a forward-thinking web development agency that combines AI-driven innovation with custom
+            coding expertise to deliver high-performance websites, landing pages, and SEO strategies. Specializing in
+            tailored solutions for businesses across industries, Accelerates empowers clients to achieve digital
+            excellence through cutting-edge technology and strategic optimization. Below is an in-depth look at their
+            core offerings and unique value proposition</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio">
+      <h2 style="text-align: center;">Our Portfolio</h2>
+      <div class="filters container">
+        <button class="active">All Projects</button>
+        <button>E-Commerce</button>
+        <button>Landing Pages</button>
+        <button>SEO</button>
+      </div>
+      <div class="portfolio-grid container">
+        <div class="project-item">
+          <!-- <iframe src="https://accelerate.42web.io/?i=1" title="Embedded Website"></iframe> -->
+          <a href="https://accelerate.42web.io/">
+            <img src="./images/portfolio1.png" alt="AI Landing Project" loading="lazy">
+            <p style="text-align: center;">AI Powered Web Development</p>
+          </a>
+        </div>
+        <div class="project-item">
+          <a href="https://accelerate.42web.io/">
+            <img src="./images/portfolio2.png" alt="AI Landing Project" loading="lazy">
+            <p style="text-align: center;">Cleint's Custom Coded Website</p>
+          </a>
+        </div>
+        <div class="project-item">
+          <a href="https://accelerate.42web.io/">
+            <img src="./images/portfolio2.png" alt="AI Landing Project" loading="lazy">
+            <p style="text-align: center;">Colne Websites</p>
+          </a>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing">
+      <!-- <h2 style="text-align: center;">Pricing Plans</h2>
+      <div class="container pricing-grid"> -->
+      <!-- Basic Plan -->
+      <!-- <div class="plan">
+          <h3>Basic</h3>
+          <p class="price">6000</p>
+          <h4>Included:</h4>
+          <ul class="included">
+            <li>Up to 5 pages</li>
+            <li>Basic SEO setup</li>
+            <li>Contact form</li>
+            <li>Mobile optimization</li>
+            <li>1 month of support</li>
+          </ul>
+          <h4>Not Included:</h4>
+          <ul class="not-included">
+            <li>E-commerce functionality</li>
+            <li>Advanced SEO strategy</li>
+            <li>Content creation</li>
+          </ul>
+          <button class="btn">Select</button>
+        </div> -->
+      <!-- Professional Plan -->
+      <!-- <div class="plan popular">
+          <h3>Professional</h3>
+          <p class="price">12000</p>
+          <h4>Included:</h4>
+          <ul class="included">
+            <li>Up to 10 pages</li>
+            <li>Comprehensive SEO strategy</li>
+            <li>Blog setup</li>
+            <li>Social media integration</li>
+            <li>Performance optimization</li>
+            <li>Content management system</li>
+            <li>3 months of support</li>
+          </ul>
+          <h4>Not Included:</h4>
+          <ul class="not-included">
+            <li>E-commerce functionality</li>
+          </ul>
+          <button class="btn">Select</button>
+        </div> -->
+      <!-- Enterprise Plan -->
+      <!-- <div class="plan">
+          <h3>Enterprise</h3>
+          <p class="price">18000</p>
+          <h4>Included:</h4>
+          <ul class="included">
+            <li>Unlimited pages</li>
+            <li>E-commerce functionality</li>
+            <li>Advanced SEO strategy</li>
+            <li>Content creation (5 pages)</li>
+            <li>Email marketing setup</li>
+            <li>Analytics dashboard</li>
+            <li>Performance optimization</li>
+            <li>6 months of priority support</li>
+          </ul> -->
+      <!-- No "Not Included" list here -->
+      <!-- <button class="btn">Contact Us</button>
+        </div>
+      </div>
+      <div class="custom-solution" style="text-align:center; margin-top:2rem;">
+        <p>Need a custom solution?</p>
+        <button class="btn-primary">Contact Us for Custom Quote</button>
+      </div>
+    </section> -->
+
+      <!-- Testimonials Section -->
+      <section id="testimonials">
+        <h2 style="text-align: center;">What Our Clients Say</h2>
+        <div class="container testimonials">
+          <div class="testimonial-card">
+            <div class="client-info">
+              <!-- <img src="https://via.placeholder.com/50?text=SJ" alt="Sarah Johnson"> -->
+              <div class="client-details">
+                <strong>Vivek Kumar<br></strong>
+                <span>TechStart Solutions</span>
+              </div>
+            </div>
+            <div class="star-rating">
+              ★★★★★
+            </div>
+            <p class="testimonial-text">
+              “Accelerates delivered our website in 3 days—unmatched speed and performance!”
+            </p>
+          </div>
+          <div class="testimonial-card">
+            <div class="client-info">
+              <!-- <img src="https://via.placeholder.com/50?text=LM" alt="Lisa M."> -->
+              <div class="client-details">
+                <strong>Rekha Gupta<br></strong>
+                <span>Marketing Lead</span>
+              </div>
+            </div>
+            <div class="star-rating">
+              ★★★★★
+            </div>
+            <p class="testimonial-text">
+              “Our organic traffic and conversions skyrocketed after their SEO overhaul.”
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ Section -->
+      <section id="faq">
+        <h2 style="text-align: center;">FAQ</h2>
+        <div class="container faq">
+          <details>
+            <summary>How fast is your turnaround?</summary>
+            <p>AI-powered sites: 48 hours; custom builds: 1–2 weeks.</p>
+          </details>
+          <details>
+            <summary>Do you offer maintenance?</summary>
+            <p>Yes, all plans include ongoing support.</p>
+          </details>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contact">
+        <div class="container contact-container">
+          <h2>Send Us a Message</h2>
+          <form class="contact-form">
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <input type="tel" placeholder="Phone Number" required>
+            <input type="text" placeholder="Subject" required>
+            <textarea placeholder="Your Message" rows="3" required></textarea>
+            <!-- <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_template" value="table"> -->
+            <button type="submit" class="btn-primary">Send Message</button>
+          </form>
+          <div id="success-message" style="display:none; color:green;">✅ Message sent successfully!</div>
+        </div>
+      </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-grid">
+      <div class="footer-col branding">
+        <h4>Accelerates</h4>
+        <p>Accelerating your business with AI-powered web development and SEO services.</p>
+        <div class="social-media">
+          <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+              class="bi bi-facebook" viewBox="0 0 16 16">
+              <path
+                d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951" />
+            </svg>
+            Facebook
+          </a><br>
+          <a href="#">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-twitter-x" viewBox="0 0 16 16">
+              <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"/>
+            </svg>
+            X
+          </a><br>
+          <a href="#">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-linkedin" viewBox="0 0 16 16">
+              <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"/>
+            </svg>
+            LinkedIn
+          </a>
+        </div>
+      </div>
+      <div class="footer-col quick-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+        </ul>
+      </div>
+      <div class="footer-col contact-details">
+        <h4>Contact</h4>
+        <p>Email: <a href="mailto:info@accelerates.com">info@accelerates.com</a></p>
+        <p>Phone: <a href="tel:+91971817994">+91 9718179994</a></p>
+        <p>Address: Delhi,India</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>
+        <a href="#privacy">Privacy Policy</a> |
+        <a href="#terms">Terms of Service</a> |
+        <a href="#sitemap">Sitemap</a>
+      </p>
+      <p>&copy; 2025 Accelerates. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+
+</html>
