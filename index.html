@@ -181,8 +181,55 @@
     .hero-left {
       text-align: center;
     }
+    /* Base desktop styling */
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+}
 
-    .hero-left img {
+.hero-subtitle {
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin-top: 1rem;
+}
+
+/* Tablet size adjustments */
+@media (max-width: 1024px) {
+  .hero-title {
+    font-size: 2.8rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.2rem;
+  }
+}
+
+/* Mobile size adjustments */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.2rem;
+    text-align: center;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+    text-align: center;
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 1.8rem;
+  }
+
+  .hero-subtitle {
+    font-size: 0.95rem;
+  }
+}
+
+
+    /* .hero-left img {
       width: 100%;
       border-radius: 1rem;
       max-width: 500px;
@@ -192,7 +239,7 @@
       font-size: 2.75rem;
       margin-bottom: 1rem;
       text-transform: uppercase;
-    }
+    } */
 
     .hero-right p {
       font-size: 1.125rem;
@@ -328,6 +375,9 @@
     }
 
     /* Portfolio Section */
+    #portfolio{
+      margin-top: -8rem;
+    }
     #portfolio .filters {
       text-align: center;
       margin-bottom: 1rem;
@@ -385,95 +435,6 @@
 
     #portfolio .project-item:hover .label {
       opacity: 1;
-    }
-
-    /* Pricing Section */
-    #pricing .pricing-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .plan {
-      position: relative;
-      background: #fff;
-      padding: 1.5rem;
-      border-radius: 1rem;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-      text-align: center;
-      transition: transform 0.3s ease;
-    }
-
-    .plan:hover {
-      transform: translateY(-5px);
-    }
-
-    .plan.popular {
-      position: relative;
-      border: 2px solid var(--accent-color);
-    }
-
-    .plan.popular::before {
-      content: "MOST POPULAR";
-      position: absolute;
-      top: -15px;
-      right: -15px;
-      background: var(--accent-color);
-      color: #fff;
-      padding: 0.3rem 0.6rem;
-      border-radius: 0.25rem;
-      font-size: 0.8rem;
-    }
-
-    .plan h3 {
-      margin-bottom: 0.5rem;
-    }
-
-    .plan .price {
-      color: var(--primary-color);
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-    }
-
-    .plan h4 {
-      font-size: 1rem;
-      margin-bottom: 0.5rem;
-      color: var(--primary-color);
-    }
-
-    .plan ul {
-      list-style: none;
-      text-align: left;
-      margin: 0 auto 1rem auto;
-      padding: 0;
-      max-width: 250px;
-    }
-
-    .plan ul li {
-      padding-left: 1rem;
-      position: relative;
-      margin-bottom: 0.5rem;
-    }
-
-    .plan ul li::before {
-      content: "✓";
-      position: absolute;
-      left: 0;
-      color: var(--accent-color);
-    }
-
-    .plan .btn {
-      background: var(--primary-color);
-      color: #fff;
-      padding: 0.75rem 1.5rem;
-      border: none;
-      border-radius: 2rem;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
-
-    .plan .btn:hover {
-      background: var(--accent-color);
     }
 
     /* Testimonials Section */
@@ -608,7 +569,6 @@
       display: grid;
       grid-template-columns: 1fr;
       gap: 1.5rem;
-      padding: 2rem 0;
     }
 
     @media (min-width: 600px) {
@@ -641,6 +601,7 @@
     .footer-bottom {
       text-align: center;
       padding: 1rem 0;
+      margin-bottom: -3rem;
       font-size: 0.8rem;
       color: var(--footer-bottom);
     }
@@ -654,9 +615,10 @@
     /* Container Styling */
     .containerImg {
       position: relative;
-      width: 500px;
-      height: 500px;
+      width: 400px;
+      height: 400px;
       margin: 0 auto;
+      border-radius: 10px;
       overflow: hidden;
     }
 
@@ -760,11 +722,12 @@
   align-items: center;
   justify-content: center;
   gap: 8rem;
+  margin-top: -5rem;
 }
 
 .about-content img {
-  width: 300px;
-  height: auto;
+  width: 100px;
+  height: 600px;
   transform: rotate(90deg);
   border-radius: 10px;
 }
@@ -849,8 +812,6 @@
           <li><a href="#services">Services</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#portfolio">Portfolio</a></li>
-          <li><a href="#pricing">Pricing</a></li>
-          <li><a href="#testimonials">Testimonials</a></li>
           <li><a href="#faq">FAQ</a></li>
           <li><button id="contactUs" style="padding: 1rem; border: #ccc;border-radius: 3rem; font-size:medium;">
               Contact Us
@@ -868,11 +829,11 @@
   <main>
     <!-- Hero Section -->
     <section id="hero"
-      style="background: linear-gradient(90deg,rgba(72, 191, 250, 1) 0%, rgb(243, 245, 247) 100%, rgba(235, 233, 213, 1) 53%);">
+      style="background-color: #00d2ff;">
       <div class="container hero-container">
         <div class="hero-right">
-          <h1>Accelerate Your Business with AI-Powered Solutions</h1>
-          <p>High-speed, AI-enhanced websites designed for performance, SEO, and maximum conversion.</p>
+          <h1 class="hero-title">Accelerate Your <br>Business with AI-Powered <br>Solutions</h1>
+          <p class="hero-subtitle">High-speed, AI-enhanced websites designed for performance, SEO, and<br> maximum conversion.</p>
           <div class="cta-buttons">
             <a href="#contact" class="btn-primary">Get Started</a>
             <a href="#portfolio" class="btn-secondary">View Our Work</a>
@@ -883,7 +844,7 @@
           <div class="gradient-top"></div>
 
           <!-- Moving Image -->
-          <img src="./Images/Accelerates.png" alt="" role="presentation" class="moving-image">
+          <img src="./Images/weblift 2.gif" alt="weblift2">
 
           <!-- Bottom Gradient Overlay -->
           <div class="gradient-bottom"></div>
@@ -1195,9 +1156,9 @@
       <h2 style="text-align: center;">Our Portfolio</h2>
       <div class="filters container">
         <button class="active">All Projects</button>
-        <button>E-Commerce</button>
-        <button>Landing Pages</button>
-        <button>SEO</button>
+        <button>AI Powered</button>
+        <button>Custom Code</button>
+        <button>Clone Sites</button>
       </div>
       <div class="portfolio-grid container">
         <div class="project-item">
@@ -1208,15 +1169,15 @@
           </a>
         </div>
         <div class="project-item">
-          <a href="https://accelerate.42web.io/">
+          <a href="https://ecommarketing.in/">
             <img src="./images/portfolio2.png" alt="AI Landing Project" loading="lazy">
             <p style="text-align: center;">Cleint's Custom Coded Website</p>
           </a>
         </div>
         <div class="project-item">
-          <a href="https://accelerate.42web.io/">
+          <a href="https://ecommarketing.in/">
             <img src="./images/portfolio2.png" alt="AI Landing Project" loading="lazy">
-            <p style="text-align: center;">Colne Websites</p>
+            <p style="text-align: center;">Clone Websites</p>
           </a>
         </div>
     </section>
@@ -1325,8 +1286,6 @@
           <li><a href="#hero">Home</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#portfolio">Portfolio</a></li>
-          <li><a href="#pricing">Pricing</a></li>
-          <li><a href="#testimonials">Testimonials</a></li>
         </ul>
       </div>
       <div class="footer-col contact-details">
