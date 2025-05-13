@@ -62,15 +62,13 @@
     }
 
     /* Navigation */
-    #nav-bar{
-      max-height: 85px;
-    }
     header {
       position: sticky;
       top: 0;
       background: #fff;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
       z-index: 1000;
+      max-height:75px;
     }
 
     header nav {
@@ -82,7 +80,7 @@
     }
 
     .logo {
-      font-size: 1.75rem;
+      font-size: 1.5rem;
       font-weight: 700;
       background: linear-gradient(90deg, var(--accent-color), var(--primary-color));
       /* -webkit-text-fill-color: transparent; */
@@ -161,8 +159,11 @@
     }
     /* Base responsive reset for smaller screens */
     @media (max-width: 1024px) {
+      header{
+        max-height: 75px;
+      }
       .logo {
-        font-size: 1.2rem;
+        font-size: 1.5rem;
         padding: 0.5rem 1rem;
         text-align: left;
       }
@@ -181,6 +182,9 @@
 
     /* For phones and smaller devices */
     @media (max-width: 600px) {
+      header{
+        max-height: 66px;
+      }
       .logo {
         font-size: 1.3rem;
         padding: 0.4rem 0.8rem;
@@ -875,7 +879,7 @@
 <body>
   <!-- Navigation -->
   <header>
-    <div class="container" id="nav-bar">
+    <div class="container">
       <nav aria-label="Main Navigation">
         <div class="logo" style="color: #1e1d1d;">Accelerates</div>
         <ul class="main-nav" id="main-nav">
@@ -885,7 +889,7 @@
           <li><a href="#portfolio">Portfolio</a></li>
           <li><a href="#faq">FAQ</a></li>
           <li><button id="contactUs" style="padding: 1rem; border: #ccc;border-radius: 3rem; font-size:medium;">
-              Contact Us
+              <a href="#contact">Contact Us</a>
             </button></li>
         </ul>
         <div class="menu-toggle" id="menu-toggle">
