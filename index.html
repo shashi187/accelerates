@@ -223,7 +223,7 @@
     }
 
     .hero-left {
-      text-align: center;
+      text-align: start;
     }
     .image-container {
       position: relative;
@@ -307,6 +307,9 @@
 
     /* Mobile size adjustments */
     @media (max-width: 768px) {
+      .hero-right{
+        align-self: flex-start;
+      }
       .hero-title {
         font-size: 2.2rem;
         text-align: start;
@@ -914,7 +917,7 @@
     <!-- Hero Section -->
     <section id="hero"
       style="background-color: #00d2ff;">
-      <div class="container hero-container" id="hero">
+      <div class="container hero-container" id="heros">
         <div class="hero-right">
           <h1 class="hero-title">Accelerate Your <br>Business with AI-Powered <br>Solutions</h1>
           <p class="hero-subtitle">High-speed, AI-enhanced websites designed for performance, SEO, and<br> maximum conversion.</p>
