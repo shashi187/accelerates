@@ -355,7 +355,7 @@
       justify-content: space-around;
       background: #fff;
       padding: 2rem 0;
-      margin-top: -1rem;
+      margin-top: -2rem;
       border-radius: 1rem;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
     }
@@ -533,24 +533,25 @@
     #portfolio .project-item:hover .label {
       opacity: 1;
     }
-
-    /* Testimonials Section */
-    #testimonials .testimonials {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
+    #testimonialSection{
+      display: flex;
+      width: full;
+      flex-direction: row;
+      gap: 1rem;
+      flex-wrap:nowrap;
+      overflow: auto;
     }
-
+    #testimonialSection::-webkit-scrollbar {
+      display: none;
+    }
     .testimonial-card {
       background: #fff;
       padding: 1.5rem;
+      flex: 0 0 auto;
+      width: 350px;
       border-radius: 1rem;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
       transition: transform 0.3s ease;
-    }
-
-    .testimonial-card:hover {
-      transform: translateY(-5px);
     }
 
     .client-info {
@@ -748,8 +749,10 @@
         box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         z-index: 999;
       }
-
-      .main-nav.active {
+      #main-nav.hidden {
+        display: none;
+      }
+      #main-nav.show {
         display: flex;
       }
 
@@ -838,6 +841,13 @@
     margin: 0 auto;
   }
 }
+#hero{
+  padding-top: 0.1rem;
+}
+#navbar{
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
+}
 
   </style>
   <script>
@@ -870,7 +880,8 @@
     const mainNav = document.getElementById('main-nav');
 
     menuToggle.addEventListener('click', () => {
-      mainNav.classList.toggle('active');
+      mainNav.classList.toggle('hidden');
+      mainNav.classList.toggle('show');
     });
   </script>
 
@@ -880,7 +891,7 @@
   <!-- Navigation -->
   <header>
     <div class="container">
-      <nav aria-label="Main Navigation">
+      <nav aria-label="Main Navigation" id="navbar">
         <div class="logo" style="color: #1e1d1d;">Accelerates</div>
         <ul class="main-nav" id="main-nav">
           <li><a href="#hero">Home</a></li>
@@ -905,7 +916,7 @@
     <!-- Hero Section -->
     <section id="hero"
       style="background-color: #00d2ff;">
-      <div class="container hero-container">
+      <div class="container hero-container" id="hero">
         <div class="hero-right">
           <h1 class="hero-title">Accelerate Your <br>Business with AI-Powered <br>Solutions</h1>
           <p class="hero-subtitle">High-speed, AI-enhanced websites designed for performance, SEO, and<br> maximum conversion.</p>
@@ -1250,9 +1261,9 @@
           </a>
         </div>
         <div class="project-item">
-          <a href="https://ecommarketing.in/">
-            <img src="./images/portfolio2.png" alt="AI Landing Project" loading="lazy">
-            <p style="text-align: center;">Clone Websites</p>
+          <a href="https://v0-student-skill-exchange-platform.vercel.app/">
+            <img src="./images/working.png" alt="AI Landing Project" loading="lazy">
+            <p style="text-align: center;">Working On</p>
           </a>
         </div>
     </section>
@@ -1260,10 +1271,9 @@
       <!-- Testimonials Section -->
       <section id="testimonials">
         <h2 style="text-align: center;">What Our Clients Say</h2>
-        <div class="container testimonials">
+        <div class="container testimonials" id="testimonialSection">
           <div class="testimonial-card">
             <div class="client-info">
-              <!-- <img src="https://via.placeholder.com/50?text=SJ" alt="Sarah Johnson"> -->
               <div class="client-details">
                 <strong>Vivek Kumar<br></strong>
                 <span>TechStart Solutions</span>
@@ -1278,7 +1288,6 @@
           </div>
           <div class="testimonial-card">
             <div class="client-info">
-              <!-- <img src="https://via.placeholder.com/50?text=LM" alt="Lisa M."> -->
               <div class="client-details">
                 <strong>Rekha Gupta<br></strong>
                 <span>Marketing Lead</span>
@@ -1289,6 +1298,48 @@
             </div>
             <p class="testimonial-text">
               “Our organic traffic and conversions skyrocketed after their SEO overhaul.”
+            </p>
+          </div>
+          <div class="testimonial-card">
+            <div class="client-info">
+              <div class="client-details">
+                <strong>Vivek Kumar<br></strong>
+                <span>TechStart Solutions</span>
+              </div>
+            </div>
+            <div class="star-rating">
+              ★★★★★
+            </div>
+            <p class="testimonial-text">
+              “Accelerates delivered our website in 3 days—unmatched speed and performance!”
+            </p>
+          </div>
+          <div class="testimonial-card">
+            <div class="client-info">
+              <div class="client-details">
+                <strong>Vivek Kumar<br></strong>
+                <span>TechStart Solutions</span>
+              </div>
+            </div>
+            <div class="star-rating">
+              ★★★★★
+            </div>
+            <p class="testimonial-text">
+              “Accelerates delivered our website in 3 days—unmatched speed and performance!”
+            </p>
+          </div>
+          <div class="testimonial-card">
+            <div class="client-info">
+              <div class="client-details">
+                <strong>Vivek Kumar<br></strong>
+                <span>TechStart Solutions</span>
+              </div>
+            </div>
+            <div class="star-rating">
+              ★★★★★
+            </div>
+            <p class="testimonial-text">
+              “Accelerates delivered our website in 3 days—unmatched speed and performance!”
             </p>
           </div>
         </div>
