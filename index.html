@@ -730,14 +730,6 @@
       gap: 5px;
     }
 
-    .menu-toggle span {
-      width: 25px;
-      height: 3px;
-      background: var(--primary-color);
-      border-radius: 2px;
-      transition: all 0.3s ease;
-    }
-
     /* Mobile Nav Behavior */
     @media (max-width: 768px) {
       .main-nav {
@@ -877,17 +869,6 @@
       });
     });
   </script>
-
-  <script>
-    const menuToggle = document.getElementById('menu-toggle');
-    const mainNav = document.getElementById('main-nav');
-
-    menuToggle.addEventListener('click', () => {
-      mainNav.classList.toggle('hidden');
-      mainNav.classList.toggle('show');
-    });
-  </script>
-
 </head>
 
 <body>
@@ -909,9 +890,11 @@
             </button></li>
         </ul>
         <div class="menu-toggle" id="menu-toggle">
-          <span></span>
-          <span></span>
-          <span></span>
+          <button id="contactUs" style="padding: 1rem; border: #ccc;border-radius: 3rem; font-size:medium;background-color: #39b54a;">
+              <a href="https://wa.me/919718179994">
+                Whatsapp
+              </a>
+            </button>
         </div>
       </nav>
     </div>
