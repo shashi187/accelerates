@@ -6,12 +6,27 @@ import FAQ from "../components/FAQ";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { Typewriter } from "@/components/ui/typewriter";
-import { MdShoppingCart } from "react-icons/md";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { useRef, useState } from "react";
 import MouseFollower from "../components/MouseFollower";
 export default function Page() {
+  const container = {
+  hidden: { opacity: 0, x: -300 },
+  show: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 0.6,
+      ease: "easeOut",
+      staggerChildren: 0.4,
+    },
+  },
+};
+  const item = {
+  hidden: { opacity: 0, x: -150 },
+  show: { opacity: 1, x: 0, transition: { duration: 0.8, ease: "easeOut" } },
+};
   const videoRef = useRef(null);
   const [isMuted, setIsMuted] = useState(true);
 
@@ -82,19 +97,19 @@ export default function Page() {
           <div>
             <header className="sticky top-0 z-40 backdrop-blur bg-slate-900/60 border-b border-white/10">
               <div className="container h-16 flex items-center justify-between">
-                <a href="#home" className="flex items-center gap-2">
+                <a href="#home" className="hidden md:flex items-center gap-2">
                   <Image
                     src="/logo.png"
                     className="rounded-full"
                     width={28}
                     height={28}
-                    alt="Accelerates Online logo"
+                    alt="Accelerates logo"
                   />
                   <span className="font-extrabold tracking-tight">
                     ACCELERATES
                   </span>
                 </a>
-                <nav className="hidden md:flex items-center gap-8 text-sm text-white/80">
+                <nav className="md:flex border border-white/50 py-1 px-2 md:p-0 rounded-2xl md:border-none  items-center gap-8 space-x-2 text-sm text-white/80">
                   <a href="#services" className="hover:text-white">
                     Services
                   </a>
@@ -113,7 +128,10 @@ export default function Page() {
                 </nav>
                 <div className="flex items-center gap-3">
                   <a
-                    href={process.env.NEXT_PUBLIC_INSTAGRAM_URL || "#"}
+                    href={
+                      process.env.NEXT_PUBLIC_INSTAGRAMPAGE_URL ||
+                      "https://www.instagram.com/accelerates.online/"
+                    }
                     target="_blank"
                     rel="noreferrer"
                     className="hidden sm:inline-flex items-center gap-2 rounded-xl border border-white/20 px-3 py-2 text-sm hover:bg-white/10"
@@ -122,7 +140,10 @@ export default function Page() {
                   </a>
                   <a
                     className="hidden sm:inline-flex items-center gap-2 rounded-xl border border-white/20 px-3 py-2 text-sm hover:bg-white/10"
-                    href={process.env.NEXT_PUBLIC_LINKEDIN_URL || "#"}
+                    href={
+                      process.env.NEXT_PUBLIC_LINKEDIN_URL ||
+                      "https://www.linkedin.com/company/107572528/"
+                    }
                     target="_blank"
                     rel="noreferrer"
                   >
@@ -134,18 +155,18 @@ export default function Page() {
 
             {/* HERO */}
             <Section id="home">
-              <div className="container grid lg:grid-cols-2 gap-10 items-center">
+              <div className="container -mt-8 grid lg:grid-cols-2 gap-10 items-center">
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.7 }}
                 >
-                  <div className="inline-flex items-center gap-2 text-xs uppercase tracking-wider text-white/70">
+                  <div className="inline-flex items-center border border-white/20 rounded-3xl py-1 px-2 gap-2 text-xs uppercase tracking-wider text-white/70">
                     Founder‑led. Growth‑first.
                   </div>
-                  <h1 className="mt-4 sm:text-6xl lg:text-5xl font-extrabold">
+                  <h1 className="mt-4 text-2xl sm:text-6xl lg:text-4xl font-extrabold">
                     AI-Powered Website Development Agency in India –<br />
-                    <span className="bg-clip-text inline-block min-h-16 md:min-h-28 text-transparent bg-gradient-to-r from-red-400 via-green-300 to-blue-500">
+                    <span className="bg-clip-text text-4xl inline-block min-h-52 md:min-h-28 text-transparent bg-gradient-to-r from-red-400 via-green-300 to-blue-500">
                       <Typewriter />
                     </span>
                   </h1>
@@ -175,12 +196,12 @@ export default function Page() {
                   transition={{ duration: 0.7 }}
                   className="relative"
                 >
-                  <div className="relative rounded-3xl border border-white/10 bg-white/5 p-4 shadow-2xl">
-                    <div className="relative aspect-[18/10] overflow-hidden rounded-3xl bg-gradient-to-br from-sky-400/20 via-fuchsia-400/10 to-violet-400/20 grid place-items-center">
+                  <div className="relative rounded-3xl border border-white/10 bg-white/5 p-2 shadow-2xl">
+                    <div className="relative aspect-auto overflow-hidden rounded-3xl bg-gradient-to-br from-sky-400/20 via-fuchsia-400/10 to-violet-400/20 grid place-items-center">
                       <video
                         src="/hero.mp4"
                         ref={videoRef}
-                        className="w-full rounded-lg cursor-pointer"
+                        className="w-full h-full rounded-lg cursor-pointer"
                         onClick={handleToggleMute}
                         autoPlay
                         loop
@@ -218,17 +239,17 @@ export default function Page() {
               subtitle="One core service with four high‑impact executions. Every build ships with technical SEO, analytics, and speed optimization."
             >
               <motion.div
-                initial={{ opacity: 0.2, x: -300 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                initial="hidden"
+                whileInView="show"
+                variants={container}
                 transition={{
                   duration: 0.6,
                   ease: "easeOut",
                 }}
                 viewport={{ once: false }}
                 className="grid md:grid-cols-2 lg:grid-cols-4 gap-6"
-                exit={{ opacity: 0, x: -100 }}
               >
-                <motion.div whileHover={{ y: -4 }} className="card">
+                <motion.div variants={item} whileHover={{ y: -4 }} className="card">
                   <svg
                     version="1.1"
                     id="Layer_1"
@@ -289,21 +310,6 @@ export default function Page() {
                     </g>
                   </svg>
                   <h3 className="text-3xl mt-10 font-bold">Ecommerce</h3>
-                  {/* <div className="relative">
-              <motion.div
-                className="relative"
-                initial={{ opacity: 0, left: 0 }}
-                animate={{ opacity: 1, left: 175 }}
-                transition={{
-                  duration: 2.5,
-                  delay: 0.3,
-                  repeat: Infinity,
-                  // repeatType: "reverse",
-                }}
-              >
-                <MdShoppingCart className="text-3xl mt-2 text-white/70" />
-              </motion.div>
-            </div> */}
                   <p className="mt-2 text-sm text-white/70">
                     Fast, scalable, SEO-ready online stores. From Shopify to
                     custom builds, we engineer storefronts that convert and
@@ -317,7 +323,7 @@ export default function Page() {
                     <span>Analytics</span>
                   </div>
                 </motion.div>
-                <motion.div whileHover={{ y: -4 }} className="card">
+                <motion.div variants={item} whileHover={{ y: -4 }} className="card">
                   <svg
                     viewBox="0 0 1024 1024"
                     className="h-200 icon place-self-center"
@@ -384,7 +390,7 @@ export default function Page() {
                     <span>Analytics</span>
                   </div>
                 </motion.div>
-                <motion.div whileHover={{ y: -4 }} className="card">
+                <motion.div variants={item} whileHover={{ y: -4 }} className="card">
                   <svg
                     viewBox="0 0 1024 1024"
                     version="1.1"
@@ -683,7 +689,7 @@ export default function Page() {
                   </figcaption>
                   <figcaption className="mt-3 flex items-center justify-between text-sm">
                     <div>
-                      <div className="font-semibold">Avasa</div>
+                      <div className="font-semibold">Shashiraj</div>
                     </div>
                     <a
                       href="https://shashiraj.vercel.app/"
@@ -914,7 +920,6 @@ export default function Page() {
             >
               <FAQ />
             </Section>
-
             {/* CONTACT */}
             <Section
               id="contact"
@@ -1017,7 +1022,10 @@ export default function Page() {
                     <div className="flex items-center gap-3">
                       <a
                         className="inline-flex items-center gap-2 rounded-xl border border-white/20 px-3 py-2 hover:bg-white/10"
-                        href={process.env.NEXT_PUBLIC_INSTAGRAM_URL || "#"}
+                        href={
+                          process.env.NEXT_PUBLIC_INSTAGRAM_URL ||
+                          "https://www.instagram.com/rishiraj_.___/"
+                        }
                         target="_blank"
                         rel="noreferrer"
                       >
@@ -1025,7 +1033,10 @@ export default function Page() {
                       </a>
                       <a
                         className="inline-flex items-center gap-2 rounded-xl border border-white/20 px-3 py-2 hover:bg-white/10"
-                        href={process.env.NEXT_PUBLIC_LINKEDIN_URL || "#"}
+                        href={
+                          process.env.NEXT_PUBLIC_LINKEDIN_URL ||
+                          "https://www.linkedin.com/in/rishiraj1360/"
+                        }
                         target="_blank"
                         rel="noreferrer"
                       >
@@ -1047,11 +1058,10 @@ export default function Page() {
                     alt="logo"
                     className="rounded-full"
                   />
-                  <span className="font-bold">Accelerates Online</span>
+                  <span className="font-bold">Accelerates</span>
                 </div>
                 <div className="text-xs text-white/60">
-                  © {new Date().getFullYear()} Accelerates Online. All rights
-                  reserved.
+                  © {new Date().getFullYear()} Accelerates. All rights reserved.
                 </div>
                 <div className="flex items-center gap-4 text-sm">
                   <a href="#privacy" className="hover:underline">
