@@ -57,12 +57,8 @@ export default function RootLayout({ children }) {
                 process.env.NEXT_PUBLIC_LINKEDIN_URL || "https://www.linkedin.com/in/rishiraj1360/",
               ],
             }),
-          }}
+          }} 
         />
-      </head>
-      <body className={inter.className}>
-        {children}
-
         {/* GA4 */}
         {GA_ID && (
           <>
@@ -77,6 +73,10 @@ export default function RootLayout({ children }) {
             </Script>
           </>
         )}
+      </head>
+      <body className={inter.className}>
+        {children}
+
       </body>
     </html>
   );

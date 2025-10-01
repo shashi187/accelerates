@@ -2,7 +2,7 @@
 import { useMemo } from "react";
 import { FaWhatsapp } from "react-icons/fa";
 export default function WhatsAppWidget() {
-  const number = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "919718179994";
+  const number = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "";
   const href = useMemo(() => {
     const txt = "Hi Accelerates Online, I need a high-performance website.";
     return `https://wa.me/${number}?text=${encodeURIComponent(txt)}`;

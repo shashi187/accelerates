@@ -935,10 +935,12 @@ export default function Page() {
                     const email = e.target.email.value;
                     const message = e.target.message.value;
                     const number = e.target.phone.value;
-                    process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "919718179994";
+                    const wNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "919718179994";
+                    const formattedNumber = wNumber.replace(/\D/g, "");
+
                     const txt = `Project inquiry: ${name} | ${email} | ${message}`;
                     window.open(
-                      `https://wa.me/${number}?text=${encodeURIComponent(txt)}`,
+                      `https://wa.me/${formattedNumber}?text=${encodeURIComponent(txt)}`,
                       "_blank"
                     );
                   }}
