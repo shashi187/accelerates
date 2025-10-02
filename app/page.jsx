@@ -12,21 +12,21 @@ import { useRef, useState } from "react";
 import MouseFollower from "../components/MouseFollower";
 export default function Page() {
   const container = {
-  hidden: { opacity: 0, x: -300 },
-  show: {
-    opacity: 1,
-    x: 0,
-    transition: {
-      duration: 0.6,
-      ease: "easeOut",
-      staggerChildren: 0.4,
+    hidden: { opacity: 0, x: -300 },
+    show: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut",
+        staggerChildren: 0.4,
+      },
     },
-  },
-};
+  };
   const item = {
-  hidden: { opacity: 0, x: -150 },
-  show: { opacity: 1, x: 0, transition: { duration: 0.8, ease: "easeOut" } },
-};
+    hidden: { opacity: 0, x: -150 },
+    show: { opacity: 1, x: 0, transition: { duration: 0.8, ease: "easeOut" } },
+  };
   const videoRef = useRef(null);
   const [isMuted, setIsMuted] = useState(true);
 
@@ -249,7 +249,11 @@ export default function Page() {
                 viewport={{ once: false }}
                 className="grid md:grid-cols-2 lg:grid-cols-4 gap-6"
               >
-                <motion.div variants={item} whileHover={{ y: -4 }} className="card">
+                <motion.div
+                  variants={item}
+                  whileHover={{ y: -4 }}
+                  className="card"
+                >
                   <svg
                     version="1.1"
                     id="Layer_1"
@@ -323,7 +327,11 @@ export default function Page() {
                     <span>Analytics</span>
                   </div>
                 </motion.div>
-                <motion.div variants={item} whileHover={{ y: -4 }} className="card">
+                <motion.div
+                  variants={item}
+                  whileHover={{ y: -4 }}
+                  className="card"
+                >
                   <svg
                     viewBox="0 0 1024 1024"
                     className="h-200 icon place-self-center"
@@ -390,7 +398,11 @@ export default function Page() {
                     <span>Analytics</span>
                   </div>
                 </motion.div>
-                <motion.div variants={item} whileHover={{ y: -4 }} className="card">
+                <motion.div
+                  variants={item}
+                  whileHover={{ y: -4 }}
+                  className="card"
+                >
                   <svg
                     viewBox="0 0 1024 1024"
                     version="1.1"
@@ -560,7 +572,6 @@ export default function Page() {
                           style={{ fill: "#FFFFFF" }}
                           d="M130.62,220.029v-63.495h27.365c3.1,0,5.961,0.641,8.586,1.923c2.623,1.283,4.874,2.951,6.751,5.008..."
                         />
-                        {/* ✨ continue same pattern for all other <path> tags, just wrap fill in style={{ fill: "#FFFFFF" }} */}
                       </g>
                     </g>
                   </svg>
@@ -581,6 +592,53 @@ export default function Page() {
                 </motion.div>
               </motion.div>
             </Section>
+
+            {/* Animations */}
+            <section className="overflow-x-hidden">
+              <div className="flex p-5 gap-10">
+                <div className="flex justify-center movel items-center gap-5 shrink-0">
+                  <h1 className="text-[14vh] font-bold">Accelerates</h1>
+                  <img
+                    className="w-20 h-20 rounded-full"
+                    src="/logo.png"
+                    alt=""
+                  />
+                  <h1 className="text-[14vh] font-bold">Accelerates</h1>
+                  <img
+                    className="w-20 h-20 rounded-full"
+                    src="/logo.png"
+                    alt=""
+                  />
+                  <h1 className="text-[14vh] font-bold">Accelerates</h1>
+                  <img
+                    className="w-20 h-20 rounded-full"
+                    src="/logo.png"
+                    alt=""
+                  />
+                </div>
+                <div className="flex justify-center movel items-center gap-5 shrink-0">
+                  <h1 className="text-[14vh] font-bold">Accelerates</h1>
+                  <img
+                    className="w-20 h-20 rounded-full"
+                    src="/logo.png"
+                    alt=""
+                  />
+                  <h1 className="text-[14vh] font-bold">Accelerates</h1>
+                  <img
+                    className="w-20 h-20 rounded-full"
+                    src="/logo.png"
+                    alt=""
+                  />
+                  <h1 className="text-[14vh] font-bold">Accelerates</h1>
+                  <img
+                    className="w-20 h-20 rounded-full"
+                    src="/logo.png"
+                    alt=""
+                  />
+                </div>
+              </div>
+            </section>
+
             {/* PORTFOLIO */}
             <Section
               id="portfolio"
@@ -935,12 +993,15 @@ export default function Page() {
                     const email = e.target.email.value;
                     const message = e.target.message.value;
                     const number = e.target.phone.value;
-                    const wNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "919718179994";
+                    const wNumber =
+                      process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "919718179994";
                     const formattedNumber = wNumber.replace(/\D/g, "");
 
                     const txt = `Project inquiry: ${name} | ${email} | ${message}`;
                     window.open(
-                      `https://wa.me/${formattedNumber}?text=${encodeURIComponent(txt)}`,
+                      `https://wa.me/${formattedNumber}?text=${encodeURIComponent(
+                        txt
+                      )}`,
                       "_blank"
                     );
                   }}
